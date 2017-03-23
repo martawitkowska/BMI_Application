@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/kg_m_option"
+        android:title="Opcja 1"
+        app:actionLayout="@layout/switch_item" />
+
+    <item
+        android:id="@+id/kg_cm_option"
+        android:title="Opcja 2"
+        app:actionLayout="@layout/switch_item" />
+
+    <item
+        android:id="@+id/lb_inch_option"
+        android:title="Opcja 3"
+        app:actionLayout="@layout/switch_item" />
+
+</menu>

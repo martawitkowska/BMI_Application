@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="witkowska.app1_bmi.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <TextView
+        android:id="@+id/massTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:height="35dp"
+        android:text="Weight: "
+        android:textColor="?attr/editTextColor"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/massEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal"
+        android:textSize="22sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="60dp"
+        android:layout_alignBottom="@+id/massTextView"
+        android:layout_alignStart="@+id/button" />
+
+    <TextView
+        android:id="@+id/heightTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/massTextView"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:text="Height: "
+        android:height="35dp"
+        android:textColor="?attr/editTextColor"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/heightEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal"
+        android:textSize="22sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="60dp"
+        android:layout_alignBottom="@+id/heightTextView"
+        android:layout_alignStart="@+id/button" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/heightEditText"
+        android:layout_marginTop="60dp"
+        android:onClick="ButtonClick"
+        android:width="150dp"
+        android:height="60dp"
+        android:text="COUNT"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/BMITextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:width="180dp"
+        android:height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/button"
+        android:background="?attr/colorPrimaryDark"
+        android:gravity="center"
+        android:text="BMI"
+        android:textColor="@android:color/background_light"
+        android:textSize="35sp" />
+
+    <EditText
+        android:id="@+id/countedBMIEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:width="180dp"
+        android:height="100dp"
+        android:layout_below="@+id/BMITextView"
+        android:background="?android:attr/colorPrimary"
+        android:focusable="false"
+        android:gravity="center"
+        android:text="0.0"
+        android:textColor="@android:color/background_light"
+        android:textSize="60sp"
+        tools:fadingEdge="horizontal" />
+
+</RelativeLayout>
