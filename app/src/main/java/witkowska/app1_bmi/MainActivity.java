@@ -1,5 +1,6 @@
 package witkowska.app1_bmi;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.massUnitTextView) TextView massUnit;
     @BindView(R.id.heightUnitTextView) TextView heightUnit;
 
+    @BindColor(R.color.colorPrimary) int primary;
+    @BindColor(R.color.colorPrimaryDark) int primary_dark;
     @BindColor(R.color.gray) int gray;
     @BindColor(R.color.gray_dark) int gray_dark;
     @BindColor(R.color.green) int green;
@@ -88,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick (R.id.button)
     public void ButtonClick(View view) {
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+
         try {
             float mass = Float.valueOf(massEditText.getText().toString());
             float height = Float.valueOf(heightEditText.getText().toString());
@@ -100,8 +107,13 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (IllegalArgumentException ex) {
             Toast toast = Toast.makeText(this, getString(R.string.error_message), Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 170);
+            toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 220);
             toast.show();
+
+            countedBMI.setBackgroundColor(primary);
+            BMIText.setBackgroundColor(primary_dark);
+            countedBMI.setText("-");
+            info.setText("");
         }
     }
 

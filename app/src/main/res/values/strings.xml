@@ -11,6 +11,9 @@
     <string name="cm">cm</string>
     <string name="lb">lb</string>
     <string name="inch">inch</string>
+    <string name="kg_m">kg/m  (unit EU)</string>
+    <string name="kg_cm">kg/cm  (unit EU)</string>
+    <string name="lb_inch">lb/inch  (unit UK)</string>
 
     <string name="under">Underweight</string>
     <string name="normal">Normal weight</string>
