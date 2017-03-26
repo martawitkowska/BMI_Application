@@ -4,17 +4,19 @@
 
     <item
         android:id="@+id/kg_m_option"
-        android:title="Opcja 1"
+        android:checkable="false"
+        android:icon="@drawable/kg_icon"
+        android:title="(EU) kg/m"
         app:actionLayout="@layout/switch_item" />
 
     <item
         android:id="@+id/kg_cm_option"
-        android:title="Opcja 2"
+        android:title="(EU) kg/cm"
         app:actionLayout="@layout/switch_item" />
 
     <item
         android:id="@+id/lb_inch_option"
-        android:title="Opcja 3"
+        android:title="(UK) lb/inch"
         app:actionLayout="@layout/switch_item" />
 
 </menu>

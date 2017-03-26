@@ -1,20 +1,18 @@
 package witkowska.app1_bmi;
 
-import android.util.Log;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
-
 /**
- * Created by Administrator on 2017-03-16.
+ * Created by Administrator on 2017-03-26.
  */
 
-public class CountBMIforKgM extends MainActivity implements ICountBMI {
+public class CountBMIforLbInch extends MainActivity implements ICountBMI {
 
-    static final float MIN_MASS = 10f;
-    static final float MAX_MASS = 250f;
-    static final float MIN_HEIGHT = 0.5f;
-    static final float MAX_HEIGHT = 2.5f;
+    //1 inch = 2,5 cm
+    //1 lb = 0,45 kg
+
+    static final float MIN_MASS = 20f;
+    static final float MAX_MASS = 500f;
+    static final float MIN_HEIGHT = 20f;
+    static final float MAX_HEIGHT = 100f;
 
     @Override
     public boolean isValidMass(float mass) {
@@ -29,9 +27,10 @@ public class CountBMIforKgM extends MainActivity implements ICountBMI {
     @Override
     public float countBMI(float mass, float height) throws IllegalArgumentException {
         if (isValidMass(mass) && isValidHeight(height))
-            return mass/(height*height);
+            return (mass*703)/(height*height);
         else
             throw new IllegalArgumentException(getString(R.string.error_message));
     }
+
 
 }

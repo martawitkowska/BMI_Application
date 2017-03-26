@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">App1_BMI</string>
+
+    <string name="bmi">BMI</string>
+    <string name="mass">Mass:</string>
+    <string name="height">Height:</string>
+    <string name="button_count">COUNT</string>
+
+    <string name="kg">kg</string>
+    <string name="m">m</string>
+    <string name="cm">cm</string>
+    <string name="lb">lb</string>
+    <string name="inch">inch</string>
+
+    <string name="under">Underweight</string>
+    <string name="normal">Normal weight</string>
+    <string name="over">Overweight</string>
+    <string name="obese">Obese</string>
+
+    <string name="error_message">Valid data - try again</string>
+
 </resources>

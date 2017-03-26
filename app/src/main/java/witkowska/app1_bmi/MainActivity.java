@@ -1,107 +1,151 @@
 package witkowska.app1_bmi;
 
 import android.graphics.Color;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import butterknife.BindColor;
+import butterknife.BindView;
+import butterknife.*;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.massEditText) EditText massEditText;
+    @BindView(R.id.heightEditText) EditText heightEditText;
+    @BindView(R.id.countedBMIEditText) EditText countedBMI;
+    @BindView(R.id.bmiInfoTextView) TextView info;
+    @BindView(R.id.BMITextView) TextView BMIText;
+    @BindView(R.id.button) Button button;
+    @BindView(R.id.massUnitTextView) TextView massUnit;
+    @BindView(R.id.heightUnitTextView) TextView heightUnit;
+
+    @BindColor(R.color.gray) int gray;
+    @BindColor(R.color.gray_dark) int gray_dark;
+    @BindColor(R.color.green) int green;
+    @BindColor(R.color.green_dark) int green_dark;
+    @BindColor(R.color.orange) int orange;
+    @BindColor(R.color.orange_dark) int orange_dark;
+    @BindColor(R.color.red) int red;
+    @BindColor(R.color.red_dark) int red_dark;
+
+    Units option;
+    public enum Units {
+        KG_M, KG_CM, LB_INCH;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle("BMI counter");
+        option = Units.KG_M;
+    }
 
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.unit_menu, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.kg_m_option:
-                // User chose the "Settings" item, show the app settings UI...
-                return true;
-
+                option = Units.KG_M;
+                massUnit.setText(getString(R.string.kg));
+                heightUnit.setText(getString(R.string.m));
+                break;
             case R.id.kg_cm_option:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                return true;
-
+                option = Units.KG_CM;
+                massUnit.setText(getString(R.string.kg));
+                heightUnit.setText(getString(R.string.cm));
+                break;
             case R.id.lb_inch_option:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                return true;
-
+                option = Units.LB_INCH;
+                massUnit.setText(getString(R.string.lb));
+                heightUnit.setText(getString(R.string.inch));
+                break;
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
+        return true;
     }
 
-
-    public void ButtonClick (View view) {
+    @OnClick (R.id.button)
+    public void ButtonClick(View view) {
         try {
-            EditText massEditText = (EditText) findViewById(R.id.massEditText);
-            EditText heightEditText = (EditText) findViewById(R.id.heightEditText);
-
             float mass = Float.valueOf(massEditText.getText().toString());
             float height = Float.valueOf(heightEditText.getText().toString());
 
-            CountBMIforKgM bmi_object = new CountBMIforKgM();
-            float bmi = bmi_object.countBMI(mass, height);
+            float bmi = dependingOnUnitBMI(mass, height);
 
-            TextView countedBMI = (TextView) findViewById(R.id.countedBMIEditText);
-            TextView BMIText = (TextView) findViewById(R.id.BMITextView);
             String formatedBMI = bmi < 100 ? String.format("%.01f", bmi) : String.valueOf((int)bmi);
             countedBMI.setText(formatedBMI);
-
-            countedBMI.setTextColor(Color.parseColor("#000000"));
-            BMIText.setTextColor(Color.parseColor("#000000"));
-
-            if (bmi < 18.5f) {
-                countedBMI.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                BMIText.setBackgroundColor(Color.parseColor("#A6A6A6"));
-                }
-            else if (bmi < 25f) {
-                countedBMI.setBackgroundColor(Color.parseColor("#CCE89F"));
-                BMIText.setBackgroundColor(Color.parseColor("#AAD763"));
-                }
-            else if (bmi < 30f) {
-                countedBMI.setBackgroundColor(Color.parseColor("#FAF7A1"));
-                BMIText.setBackgroundColor(Color.parseColor("#EDE86F"));
-                }
-            else if (bmi < 40f) {
-                countedBMI.setBackgroundColor(Color.parseColor("#F5C98D"));
-                BMIText.setBackgroundColor(Color.parseColor("#F0AE42"));
-                }
-            else {
-                countedBMI.setBackgroundColor(Color.parseColor("#EE8C75"));
-                BMIText.setBackgroundColor(Color.parseColor("#E26142"));
-            }
+            colorChange(bmi, countedBMI);
 
         } catch (IllegalArgumentException ex) {
-            ex.printStackTrace();
-            TextView countedBMI = (TextView) findViewById(R.id.countedBMIEditText);
-            TextView BMIText = (TextView) findViewById(R.id.BMITextView);
-
-            countedBMI.setText("X");
-            countedBMI.setTextColor(Color.parseColor("#FFFFFF"));
-            BMIText.setTextColor(Color.parseColor("#FFFFFF"));
-            countedBMI.setBackgroundColor(Color.parseColor("#3F51B5"));
-            BMIText.setBackgroundColor(Color.parseColor("#303F9F"));
+            Toast toast = Toast.makeText(this, getString(R.string.error_message), Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 170);
+            toast.show();
         }
+    }
+
+    public float dependingOnUnitBMI(float mass, float height) {
+        float bmi = 0;
+        switch (option) {
+            case KG_M:
+                CountBMIforKgM kg_m = new CountBMIforKgM();
+                bmi = kg_m.countBMI(mass, height);
+                break;
+            case KG_CM:
+                CountBMIforKgM kg_cm = new CountBMIforKgM();
+                bmi = kg_cm.countBMI(mass, (height/100));
+                break;
+            case LB_INCH:
+                CountBMIforLbInch lb_inch = new CountBMIforLbInch();
+                bmi = lb_inch.countBMI(mass, height);
+                break;
+        }
+        return bmi;
+    }
+
+    public void colorChange(float bmi, TextView countedBMI) {
+        if (bmi < 18.5f) {
+            countedBMI.setBackgroundColor(gray);
+            BMIText.setBackgroundColor(gray_dark);
+            info.setText(getString(R.string.under));
+        }
+        else if (bmi < 25f) {
+            countedBMI.setBackgroundColor(green);
+            BMIText.setBackgroundColor(green_dark);
+            info.setText(getString(R.string.normal));
+        }
+        else if (bmi < 30f) {
+            countedBMI.setBackgroundColor(orange);
+            BMIText.setBackgroundColor(orange_dark);
+            info.setText(getString(R.string.over));
+        }
+        else {
+            countedBMI.setBackgroundColor(red);
+            BMIText.setBackgroundColor(red_dark);
+            info.setText(getString(R.string.obese));
+        }
+
     }
 
 }
