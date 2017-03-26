@@ -17,6 +17,6 @@
     <string name="over">Overweight</string>
     <string name="obese">Obese</string>
 
-    <string name="error_message">Valid data - try again</string>
+    <string name="error_message">Invalid data - try again</string>
 
 </resources>

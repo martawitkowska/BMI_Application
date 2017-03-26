@@ -31,7 +31,7 @@ public class CountBMIforKgM extends MainActivity implements ICountBMI {
         if (isValidMass(mass) && isValidHeight(height))
             return mass/(height*height);
         else
-            throw new IllegalArgumentException(getString(R.string.error_message));
+            throw new IllegalArgumentException();
     }
 
 }

@@ -4,10 +4,10 @@
     <color name="colorPrimaryDark">#9e1535</color>
     <color name="colorAccent">#e12654</color>
 
-    <color name="gray">#737373</color>
+    <color name="gray">#696969</color>
     <color name="gray_dark">#484848</color>
     <color name="green">#669c10</color>
-    <color name="green_dark">#508101</color>
+    <color name="green_dark">#55830b</color>
     <color name="orange">#e7681a</color>
     <color name="orange_dark">#d24600</color>
     <color name="red">#da2536</color>

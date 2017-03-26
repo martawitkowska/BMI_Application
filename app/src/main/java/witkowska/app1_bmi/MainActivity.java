@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public float dependingOnUnitBMI(float mass, float height) {
+    public float dependingOnUnitBMI(float mass, float height) throws IllegalArgumentException {
         float bmi = 0;
         switch (option) {
             case KG_M:

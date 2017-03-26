@@ -29,7 +29,7 @@ public class CountBMIforLbInch extends MainActivity implements ICountBMI {
         if (isValidMass(mass) && isValidHeight(height))
             return (mass*703)/(height*height);
         else
-            throw new IllegalArgumentException(getString(R.string.error_message));
+            throw new IllegalArgumentException();
     }
 
 
