@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="witkowska.app1_bmi.MainActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:popupTheme="@style/Theme.AppCompat" >
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="14dp"
+            android:text="@string/author_toolbar"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        </android.support.v7.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/baymax"
+            android:layout_marginTop="65dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/baymax" />
+
+        <TextView
+            android:id="@+id/NameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="75dp"
+            android:background="?attr/colorPrimary"
+            android:paddingTop="10dp"
+            android:paddingLeft="15dp"
+            android:text="@string/author_title"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/baymax"
+            android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@+id/DescriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryLight"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/author_description"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:lineSpacingExtra="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/baymax"
+        android:layout_alignStart="@+id/baymax"
+        android:layout_alignEnd="@+id/NameTextView" />
+
+    <TextView
+        android:id="@+id/versionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/version"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp" />
+
+</RelativeLayout>

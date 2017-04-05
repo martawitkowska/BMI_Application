@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -25,11 +30,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="25dp"
+        android:layout_toStartOf="@+id/massEditText"
         android:height="35dp"
         android:text="@string/mass"
-        android:textColor="?attr/editTextColor"
-        android:textSize="24sp"
-        android:layout_toStartOf="@+id/massEditText" />
+        android:textSize="22sp"
+        android:textColor="?attr/editTextColor" />
 
     <EditText
         android:id="@+id/massEditText"
@@ -37,37 +42,38 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberSigned|numberDecimal"
-        android:layout_marginLeft="5dp"
-        android:textSize="24sp"
-        android:layout_alignEnd="@+id/BMITextView"
         android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/button"
         android:layout_marginTop="87dp"
-        android:layout_alignStart="@+id/button" />
+        android:textSize="22sp"
+        android:hint="@string/kg_hint"
+        android:textColorHint="@color/gray_light"
+        android:layout_toStartOf="@+id/massUnitTextView" />
 
     <TextView
         android:id="@+id/massUnitTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/massTextView"
+        android:layout_toEndOf="@+id/BMITextView"
         android:height="35dp"
         android:text="@string/kg"
-        android:textColor="?attr/editTextColor"
-        android:textSize="24sp"
-        android:layout_alignBottom="@+id/massTextView"
-        android:layout_toEndOf="@+id/BMITextView" />
+        android:textSize="22sp"
+        android:textColor="?attr/editTextColor" />
 
     <TextView
         android:id="@+id/heightTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/massTextView"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="25dp"
-        android:text="@string/height"
+        android:layout_toStartOf="@+id/heightEditText"
         android:height="35dp"
-        android:textColor="?attr/editTextColor"
-        android:textSize="24sp"
-        android:layout_toStartOf="@+id/heightEditText" />
+        android:text="@string/height"
+        android:textSize="22sp"
+        android:textColor="?attr/editTextColor" />
 
     <EditText
         android:id="@+id/heightEditText"
@@ -75,51 +81,54 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberSigned|numberDecimal"
-        android:layout_marginLeft="5dp"
-        android:textSize="24sp"
-        android:layout_alignEnd="@id/BMITextView"
         android:layout_alignTop="@+id/massEditText"
-        android:layout_marginTop="82dp"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignStart="@+id/button"
+        android:layout_marginTop="65dp"
+        android:textSize="22sp"
+        android:hint="@string/m_hint"
+        android:textColorHint="@color/gray_light"
+        android:layout_toStartOf="@+id/heightUnitTextView" />
 
     <TextView
         android:id="@+id/heightUnitTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_alignBottom="@+id/heightTextView"
+        android:layout_toEndOf="@+id/BMITextView"
         android:height="35dp"
         android:text="@string/m"
-        android:textColor="?attr/editTextColor"
-        android:textSize="24sp"
-        android:layout_alignBottom="@+id/heightTextView"
-        android:layout_toEndOf="@+id/BMITextView" />
+        android:textSize="22sp"
+        android:textColor="?attr/editTextColor" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/heightEditText"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
         android:onClick="ButtonClick"
-        android:width="150dp"
+        android:width="200dp"
         android:height="60dp"
         android:text="@string/button_count"
-        android:textSize="25sp"
-        android:layout_centerHorizontal="true" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/BMITextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:width="190dp"
+        android:width="200dp"
         android:height="60dp"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/button"
         android:background="?attr/colorPrimaryDark"
         android:gravity="center"
         android:text="@string/bmi"
-        android:textColor="@android:color/background_light"
+        android:textColor="@android:color/white"
         android:textSize="35sp" />
 
     <EditText
@@ -127,7 +136,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:width="190dp"
+        android:width="200dp"
         android:height="100dp"
         android:layout_below="@+id/BMITextView"
         android:background="?android:attr/colorPrimary"
@@ -151,4 +160,21 @@
         android:textColor="@color/gray_dark"
         android:text="" />
 
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignEnd="@+id/BMITextView"
+        android:layout_below="@+id/bmiInfoTextView"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="5dp"
+        android:width="100dp"
+        android:height="40dp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:onClick="buttonSaveOnClick"
+        android:text="@string/button_save"
+        android:textSize="10sp" />
+
 </RelativeLayout>
+</ScrollView>

@@ -49,4 +49,24 @@ public class CountBMITests {
         assertTrue(countBMI.isValidHeight(height));
     }
 
+    @Test
+    public void personalMassLbInch_isValid() {
+        //GIVEN
+        float mass = 100f;
+        //WHEN
+        ICountBMI countBMI = new CountBMIforLbInch();
+        //THEN
+        assertTrue(countBMI.isValidHeight(mass));
+    }
+
+    @Test
+    public void personalHeightLbInch_isValid() {
+        //GIVEN
+        float height = 72f;
+        //WHEN
+        ICountBMI countBMI = new CountBMIforLbInch();
+        //THEN
+        assertTrue(countBMI.isValidHeight(height));
+    }
+
 }

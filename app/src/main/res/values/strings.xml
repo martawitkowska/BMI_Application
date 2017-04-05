@@ -5,6 +5,9 @@
     <string name="mass">Mass:</string>
     <string name="height">Height:</string>
     <string name="button_count">COUNT</string>
+    <string name="button_save">Save your BMI</string>
+    <string name="toolbar">BMI counter</string>
+    <string name="author_toolbar">BMI counter - author info</string>
 
     <string name="kg">kg</string>
     <string name="m">m</string>
@@ -15,11 +18,28 @@
     <string name="kg_cm">kg/cm  (unit EU)</string>
     <string name="lb_inch">lb/inch  (unit UK)</string>
 
+    <string name="kg_hint">63</string>
+    <string name="m_hint">1.82</string>
+    <string name="cm_hint">182</string>
+    <string name="lb_hint">126</string>
+    <string name="inch_hint">73</string>
+
     <string name="under">Underweight</string>
     <string name="normal">Normal weight</string>
     <string name="over">Overweight</string>
     <string name="obese">Obese</string>
 
     <string name="error_message">Invalid data - try again</string>
+    <string name="share_error_message">You can not share invalid data</string>
+    <string name="save_error_message">You can not save invalid data</string>
+    <string name="save_valid_message">Your BMI has been successfully saved</string>
+    <string name="share_title">Moje super BMI ^^</string>
+    <string name="share_option">Share your BMI with friends!</string>
+    <string name="share_message_1">Dzięki mojej super aplikacji wiem, na ile przydałoby mi się schudnąć :D Moje BMI wynosi</string>
+    <string name="share_message_2">i dzielę się z Tobą tą informacją, bo tak bardzo Cię lubię :*</string>
+
+    <string name="author_title">Marta Witkowska\nBMI app</string>
+    <string name="author_description">Yes, as you could notice - I like pink. And I like Baymax too :)\nHaving any suggestions or notes write an e-mail: 228003@student.pwr.edu.pl</string>
+    <string name="version">Version 1.3</string>
 
 </resources>
